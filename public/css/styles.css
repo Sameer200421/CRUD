@@ -1,0 +1,400 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    display: flex;
+    height: 100%;
+    overflow: hidden;
+    transition: 0.5s;
+}
+
+/* h1{
+    margin:0;
+    padding: 0;
+    font-size: 2rem;
+
+} */
+
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+
+    background-color: #f2f2f2;
+    padding: 10px 20px;
+    /* position: fixed; */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+.hamburger-menu {
+    font-size: 24px;
+    color: #5f94bd;
+    cursor: pointer;
+    margin-right: 20px;
+}
+
+.logo a {
+    font-size: 24px;
+    color: #333;
+    text-decoration: none;
+}
+
+.search-bar {
+    flex-grow: 1;
+    margin: 0 20px;
+}
+
+.search-bar input {
+    width: 100%;
+    padding: 8px;
+    border-radius: 20px;
+    border: 1px solid #ddd;
+    font-size: 16px;
+}
+
+.nav-links a {
+    margin: 0 15px;
+    color: #333;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+.user-menu a {
+    margin-left: 20px;
+    color: #333;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+.nav-links a:hover, .user-menu a:hover {
+    color: #5f94bd;; /* SoundCloud orange */
+}
+.hamburger-menu i {
+    font-size: 24px;
+    color: #5f94bd;
+}
+
+/* Sidebar Styles */
+#hamburger {
+    font-size: 30px;
+    cursor: pointer;
+    padding: 10px;
+}
+
+.container {
+    /* display: flex; */
+    height: 100%;
+    overflow: hidden;
+    /* flex-direction: column; */
+    transition: 0.5s;
+}
+
+/* Sidebar styles */
+.sidebar {
+    width: 0;
+    background-color: #f2f2f2;
+    overflow-x: hidden;
+    transition: width 0.5s;
+    padding-top: 60px;
+    flex-shrink: 0;
+}
+
+.sidebar ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.sidebar ul li {
+    padding: 8px 8px 8px 32px;
+    text-align: left;
+}
+
+.sidebar ul li a {
+    color: #333;
+    text-decoration: none;
+    font-size: 25px;
+    display: block;
+    transition: 0.3s;
+}
+
+.sidebar ul li a:hover {
+    color: #5f94bd;
+}
+
+/* Main content styles */
+.main {
+    height: fit-content;
+    width: 100%;
+  background-color: #f7f9fe;
+    flex-grow: 1;
+    padding: 2rem;
+    transition: flex-grow 0.5s;
+}
+
+/* Sidebar open state */
+.sidebar.open {
+    width: 250px;
+}
+
+.container1 {
+    background-color: white;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+.body2 {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+.form-group {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+    width: 100%;
+    padding: 8px;
+    margin: 5px 0 10px;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+button {
+    background-color: #5f94bd;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+p {
+    margin-top: 15px;
+}
+h2 {
+    margin-bottom: 20px;
+}
+footer{
+    color:#777;
+    font-weight: 300;
+    margin-left: 45%;
+}
+.create-blog form{
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.create-blog input,
+.create-blog textarea{
+    display: block;
+    width:100%;
+    margin:10px 0;
+    padding: 8px;
+}
+
+.create-blog label{
+    display:block;
+    margin-top: 24px;
+}
+textarea{
+    height:120px;
+}
+.create-blog button{
+    margin-top:20px;
+    background: #5f94bd;
+    color: white;
+    padding: 6px;
+    border:0;
+    font-size: 1.2em;
+    cursor:pointer;
+}
+
+.blogs_content{
+    display: flex;
+    flex-direction: column;
+
+}
+.blogs_content_images{
+    display: flex;
+    /* flex-direction: column; */
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+    align-items: center;
+    
+
+
+}
+.single{
+    transition: box-shadow 0.3s ease; 
+    width: fit-content;
+    border-radius: 25px;
+    background-color: #5f94bd;
+    padding: 5px;
+    justify-items: center;
+}
+.single:hover{
+    box-shadow: 10px 10px 20px rgba(36, 36, 36, 0.5);
+}
+.eachbox{
+    transition: box-shadow 0.3s ease; 
+    width: fit-content;
+    border-radius: 25px;
+    background-color: #5f94bd;
+    padding: 1%;
+}
+.details{
+    position: relative;
+}
+.delete{
+    border-radius: 50%;
+    color:white;
+    
+}
+
+.delete:hover{
+    cursor: pointer;
+    box-shadow: 1px 2px 3px rgba(0,0,0,0.2);
+}
+
+
+.hero{
+    justify-self: center;
+    align-self: center;
+    display: flex;
+width: 25rem;
+padding: 2rem 2rem;
+flex-direction: column;
+align-items: center;
+gap: 1rem;
+border-radius: 2rem;
+background: antiquewhite;
+}
+
+.hero h1{
+    color: #000;
+text-align: center;
+font-family: Inter;
+font-size: 2rem;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+align-self: stretch;
+}
+
+.hero h3{
+    color: #000;
+text-align: center;
+font-family: Inter;
+font-size: 1rem;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+align-self: stretch;
+}
+
+.hero nav{
+    display: flex;
+flex-direction: column;
+align-items: flex-start;
+gap: 1.4rem;
+align-self: stretch;
+}
+
+.hero form{
+    display: flex;
+flex-direction: column;
+align-items: center;
+gap: 1.4rem;
+align-self: stretch;
+}
+
+.hero form input{
+    /* display: flex;
+flex-direction: column; */
+align-items: center;
+width: max-content;
+align-self: stretch;
+}
+
+
+.hero nav a{
+    display: flex;
+padding: 1.3125rem 2rem;
+justify-content: center;
+align-items: center;
+gap: 0.625rem;
+align-self: stretch;
+border-radius: 0.8125rem;
+border: 1px solid #0090FF;
+background: #97D2FF;
+color: #000;
+font-family: Inter;
+font-size: 1rem;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+}
+.con1{
+    display: flex;
+    flex-direction: column;
+    margin-left: 20px;
+}
+.audio_tracks {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    margin: 20px 0;
+}
+
+.audio_item {
+    border: 1px solid #ccc;
+    padding: 20px;
+    border-radius: 8px;
+    width: 300px;
+    background-color: #f9f9f9;
+}
+
+.audio_item h3 {
+    margin: 0 0 10px;
+    font-size: 20px;
+    color: #333;
+}
+
+.audio_item p {
+    margin: 0 0 10px;
+    color: #555;
+}
+
+audio {
+    width: 100%;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+.delete {
+    color: #e74c3c;
+    text-decoration: none;
+    font-weight: bold;
+}

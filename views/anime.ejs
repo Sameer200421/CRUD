@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('./partials/head.ejs') %>
+</head>
+<body>
+    <%- include('./partials/nav.ejs') %>
+    <div id="container" class="container">
+        <%- include('./partials/sidebar.ejs') %>
+        <div id="main" class="main">
+            <h1>Animation Videos Library</h1>
+
+            <% if (videos.length > 0) { %>
+                <div class="videos-grid" style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: center;">
+                    <% videos.forEach(video => { %>
+                        <a href="/anime/<%= video._id%>" style="text-decoration: none;color: black;">
+                        <div class="video-item" style="width: 300px; border: 1px solid #ccc; border-radius: 8px; padding: 15px; background-color: #f9f9f9;">
+                            <!-- Video Player -->
+                            <video controls style="width: 100%; border-radius: 8px; margin-top: 10px;">
+                                <source src="data:<%= video.file.contentType %>;base64,<%= video.file.data.toString('base64') %>" type="<%= video.file.contentType %>">
+                                Your browser does not support the video element.
+                            </video>
+                            <h2 style="font-size: 1.5em; margin-bottom: 10px;"><%= video.title %></h2>
+                            <p><strong>Description:</strong> <%= video.description %></p>
+                            <p><strong>Artist:</strong> <%= video.artist %></p>
+                            <p><strong>Genre:</strong> <%= video.genre %></p>
+                            <p><strong>Tags:</strong> <%= video.tags.join(', ') || 'No tags' %></p>
+                            <p><strong>Duration:</strong> <%= video.duration %> seconds</p>
+
+                            
+                        </div>
+                        </a>
+                    <% }) %>
+                </div>
+            <% } else { %>
+                <p style="text-align: center; font-size: 1.2em;">No videos uploaded yet.</p>
+            <% } %>
+        </div>
+    </div>
+
+    <%- include('./partials/footer.ejs') %>
+</body>
+</html>

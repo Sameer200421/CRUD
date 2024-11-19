@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <%- include('./partials/head.ejs') %>
+    </head>
+<body>
+    <%- include('./partials/nav.ejs') %>
+
+    <div id="container" class="container">
+        <%- include('./partials/sidebar.ejs') %>
+        <div class="con1">
+            <!-- Dance Video Library Title -->
+            <h1 style="margin-top: 20px; font-size: 2em; color: #333;">Dance Video Library</h1>
+
+            <!-- Videos Section -->
+            <div class="video_tracks" style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; margin-top: 20px; margin-bottom: 20px;">
+                <% videos.forEach(function(video) { %>
+                <a href="/dance-videos/<%= video._id%>" style="text-decoration: none;">
+                    <div class="video_item" style="border: 1px solid #ccc; padding: 15px; border-radius: 8px; width: 320px; background-color: #f9f9f9; margin-bottom: 20px;">
+                        <!-- Video Title -->
+                        <h3 style="margin: 0 0 10px; font-size: 20px; color: #333;"><%= video.title %></h3>
+                        
+                        <!-- Video Player -->
+                        <video controls style="width: 100%; margin-bottom: 10px;">
+                            <source src="<%= video.fileUrl %>" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+
+                        <!-- Video Metadata -->
+                        <p style="margin: 0 0 10px; color: #555;">Choreographer: <%= video.choreographer || 'Unknown' %></p>
+                        <p style="margin: 0 0 10px; color: #555;">Genre: <%= video.genre || 'Unknown' %></p>
+                        <p style="margin: 0 0 10px; color: #555;">Tags: <%= (video.tags || []).join(', ') || 'None' %></p>
+                        <p style="margin: 0 0 10px; color: #555;">Uploaded: <%= video.uploadDate ? new Date(video.uploadDate).toLocaleDateString() : 'N/A' %></p>
+                
+                        
+                        <!-- <iframe src="https://www.youtube.com/embed/sgdszEtAZdI?si=bAW3l7fm2ZD1EXXW" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe> -->
+                
+                        <!-- Delete Button -->
+                        <!-- <form action="/dance-videos/<%= video._id %>?_method=DELETE" method="POST" style="display: inline;">
+                            <button type="submit" style="padding: 5px 10px; background-color: #e74c3c; color: white; border: none; cursor: pointer; border-radius: 4px;">
+                                Delete
+                            </button>
+                        </form> -->
+                    </div>
+                    <% }) %>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <%- include('./partials/footer.ejs') %>
+    <script src="/js/script.js"></script>
+</body>
+</html>

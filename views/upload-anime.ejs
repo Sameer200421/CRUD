@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <%- include('./partials/head.ejs') %>
+    </head>
+<body>
+    <%- include('./partials/nav.ejs') %>
+
+    <div id="container" class="container">
+        <%- include('./partials/sidebar.ejs') %>
+        <div id="main" class="main">
+            <div class="hero">
+                <h1>Upload Animation Video</h1>
+                <!-- Form for Animation Video -->
+                <form action="/anime" method="POST" enctype="multipart/form-data">
+                    <div>
+                        <label for="title">Video Title</label>
+                        <input
+                            type="text"
+                            id="title"
+                            placeholder="Title"
+                            name="title"
+                            required
+                        />
+                    </div>
+                    <div>
+                        <label for="description">Video Description</label>
+                        <textarea
+                            id="description"
+                            name="description"
+                            rows="2"
+                            placeholder="Description"
+                            required
+                        >
+                        </textarea>
+                    </div>
+                    <div>
+                        <label for="artist">Artist</label>
+                        <input
+                            type="text"
+                            id="artist"
+                            placeholder="Artist Name"
+                            name="artist"
+                        />
+                    </div>
+                    <div>
+                        <label for="genre">Genre</label>
+                        <input
+                            type="text"
+                            id="genre"
+                            placeholder="Genre (e.g., 3D, 2D)"
+                            name="genre"
+                        />
+                    </div>
+                    <div>
+                        <label for="tags">Tags (comma-separated)</label>
+                        <input
+                            type="text"
+                            id="tags"
+                            placeholder="e.g., animation, creativity"
+                            name="tags"
+                        />
+                    </div>
+                    <div>
+                        <label for="duration">Video Duration (in seconds)</label>
+                        <input
+                            type="number"
+                            id="duration"
+                            placeholder="Duration (e.g., 240)"
+                            name="duration"
+                        />
+                    </div>
+                    <div>
+                        <label for="file">Upload Animation Video</label>
+                        <input type="file" id="file" name="file" accept="video/*" required />
+                    </div>
+                    <div>
+                        <button type="submit">Submit Animation Video</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <%- include('./partials/footer.ejs') %>
+    <script src="/js/script.js"></script>
+</body>
+</html>

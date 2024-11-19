@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <%- include('./partials/head.ejs') %>
+    </head>
+<body>
+    <%- include('./partials/nav.ejs') %>
+
+    <div id="container" class="container">
+
+        <%- include('./partials/sidebar.ejs') %>
+        <div id="main" class="main">
+            <div class="hero">
+                <h1>Upload the Music</h1>
+                <form action="/music" method="POST" enctype="multipart/form-data">
+                    <div>
+                        <label for="title">Music Title</label>
+                        <input
+                            type="text"
+                            id="title"
+                            placeholder="Title"
+                            name="title"
+                            required
+                        />
+                    </div>
+                    <div>
+                        <label for="description">Music Description</label>
+                        <textarea
+                            id="description"
+                            name="description"
+                            rows="2"
+                            placeholder="Description"
+                            required
+                        >
+                        </textarea>
+                    </div>
+                    <div>
+                        <label for="artist">Artist</label>
+                        <input
+                            type="text"
+                            id="artist"
+                            placeholder="Artist Name"
+                            name="artist"
+                        />
+                    </div>
+                    <div>
+                        <label for="genre">Genre</label>
+                        <input
+                            type="text"
+                            id="genre"
+                            placeholder="Genre (e.g., Rock, Jazz)"
+                            name="genre"
+                        />
+                    </div>
+                    <div>
+                        <label for="tags">Tags (comma-separated)</label>
+                        <input
+                            type="text"
+                            id="tags"
+                            placeholder="e.g., relaxing, instrumental"
+                            name="tags"
+                        />
+                    </div>
+                    <div>
+                        <label for="file">Upload Audio File</label>
+                        <input type="file" id="file" name="file" accept="audio/*" required />
+                    </div>
+                    <div>
+                        <button type="submit">Submit</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <%- include('./partials/footer.ejs') %>
+    <script src="/js/script.js"></script>
+</body>
+</html>

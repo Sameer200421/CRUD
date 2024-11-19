@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('./partials/head.ejs') %>
+</head>
+<body>
+    <div class="body2">
+        <div class="container1">
+            <h2>Verify OTP</h2>
+            <form action="/verify-otp" method="POST">
+                <input type="hidden" name="email" value="<%= email %>"> <!-- Pass email to identify user -->
+                <input type="hidden" name="stage" value="signup"> <!-- Distinguish between sign-in and sign-up -->
+                <div class="form-group">
+                    <label for="otp">Enter OTP:</label>
+                    <input type="text" id="otp" name="otp" required>
+                </div>
+                <button type="submit">Verify</button>
+            </form>
+        </div>
+    </div>
+    <%- include('./partials/footer.ejs') %>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <%- include('./partials/head.ejs') %>
+    </head>
+<body>
+    <%- include('./partials/nav.ejs') %>
+
+    <div id="container" class="container">
+        <!-- Sidebar -->
+        <%- include('./partials/sidebar.ejs') %>
+
+        <!-- Main Content -->
+        <div class="con1" id="main">
+            <!-- Page Title -->
+            <h1 style="margin-top: 20px; font-size: 2em; color: #333;">Audio Details</h1>
+
+            <!-- Audio Details Section -->
+            <div class="audio_tracks" style="display: flex; justify-content: center; margin-top: 20px;">
+                <% if (audio && audio.file) { %>
+                <div class="audio_item" style="border: 1px solid #ccc; padding: 20px; border-radius: 8px; width: 300px; background-color: #f9f9f9;">
+                    
+                    <!-- Audio Player -->
+                    <audio controls style="width: 100%; border-radius: 10px; margin-bottom: 15px;">
+                        <source src="data:<%= audio.file.contentType %>;base64,<%= audio.file.data.toString('base64') %>" type="<%= audio.file.contentType %>">
+                        Your browser does not support the audio element.
+                    </audio>
+
+                    <!-- Audio Metadata -->
+                    <h3 style="margin: 0 0 10px; font-size: 20px; color: #333;"><%= audio.title %></h3>
+                    <p style="margin: 0 0 10px; color: #555;">Artist: <%= audio.artist || 'Unknown' %></p>
+                    <p style="margin: 0 0 10px; color: #555;">Genre: <%= audio.genre || 'Unknown' %></p>
+                    <p style="margin: 0 0 10px; color: #555;">Tags: <%= (audio.tags || []).join(', ') || 'None' %></p>
+                    <p style="margin: 0 0 10px; color: #555;">Duration: <%= audio.duration ? (audio.duration + ' seconds') : 'N/A' %></p>
+
+                    <!-- Delete Button -->
+                    <form action="/music/<%= audio._id %>?_method=DELETE" method="POST" style="display: inline;">
+                        <button type="submit" style="padding: 5px 10px; background-color: #e74c3c; color: white; border: none; cursor: pointer; border-radius: 4px;">
+                            Delete
+                        </button>
+                    </form>
+
+                </div>
+                <% } else { %>
+                <p style="color: #555; text-align: center;">Audio file not available</p>
+                <% } %>
+            </div>
+        </div>
+    </div>
+
+    <%- include('./partials/footer.ejs') %>
+    <script src="/js/script3.js"></script>
+</body>
+</html>

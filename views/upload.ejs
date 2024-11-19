@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <%- include('./partials/head.ejs') %>
+    </head>
+<body>
+    <%- include('./partials/nav.ejs') %>
+
+    <div id="container" class="container">
+
+        <%- include('./partials/sidebar.ejs') %>
+        <div id="main" class="main">
+            <div class="hero">
+            <h1>Welcome to upload page</h1>
+            <h3>Please select the following way you want to input your art</h3>
+            <nav>
+                <a href="/upload-paint" class="button">Upload-Paintings</a>
+                <a href="/upload-music" class="button">Upload-Music</a>
+                <a href="/upload-dance" class="button">Upload-Dance</a>
+                <a href="/upload-anime" class="button">Upload-Animation</a>
+            </nav>
+        </div>
+        </div>
+    </div>
+    <%- include('./partials/footer.ejs') %>
+    <script src="js/script.js"></script>
+</body>
+</html>

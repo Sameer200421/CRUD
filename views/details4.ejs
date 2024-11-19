@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('./partials/head.ejs') %>
+</head>
+<body>
+    <%- include('./partials/nav.ejs') %>
+
+    <div id="container" class="container">
+        <%- include('./partials/sidebar.ejs') %>
+        <div id="main" class="main" style="background-color: #f9f9f9; padding: 20px;">
+
+            <% if (video) { %>
+            <div style="text-align: center;">
+
+                <!-- Video Player -->
+                <video controls style="width: 100%; margin-bottom: 10px;">
+                    <source src="<%= video.fileUrl %>" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <h1><%= video.title %></h1>
+                <p><strong>Description:</strong> <%= video.description %></p>
+                <p><strong>Artist:</strong> <%= video.artist || 'Unknown' %></p>
+                <p><strong>Genre:</strong> <%= video.genre || 'Unknown' %></p>
+                <p><strong>Tags:</strong> <%= (video.tags || []).join(', ') || 'None' %></p>
+                <p><strong>Duration:</strong> <%= video.duration ? video.duration + ' seconds' : 'N/A' %></p>
+
+                
+
+                <!-- Delete Video Form -->
+                <form action="/anime/<%= video._id %>?_method=DELETE" method="POST" style="margin-top: 20px;">
+                    <button type="submit" style="background-color: #e74c3c; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer;">
+                        Delete Video
+                    </button>
+                </form>
+            </div>
+            <% } else { %>
+                <p>Video not found.</p>
+            <% } %>
+
+        </div>
+    </div>
+
+    <%- include('./partials/footer.ejs') %>
+</body>
+</html>

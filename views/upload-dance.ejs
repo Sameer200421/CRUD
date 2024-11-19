@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <%- include('./partials/head.ejs') %>
+    </head>
+<body>
+    <%- include('./partials/nav.ejs') %>
+
+    <div id="container" class="container">
+
+        <%- include('./partials/sidebar.ejs') %>
+        <div id="main" class="main">
+            <div class="hero">
+                <h1>Upload the Dance Video</h1>
+                <form action="/dance-videos" method="POST" enctype="multipart/form-data">
+                    <div>
+                        <label for="title">Video Title</label>
+                        <input
+                            type="text"
+                            id="title"
+                            placeholder="Title"
+                            name="title"
+                            required
+                        />
+                    </div>
+                    <div>
+                        <label for="description">Video Description</label>
+                        <textarea
+                            id="description"
+                            name="description"
+                            rows="2"
+                            placeholder="Description"
+                            required
+                        >
+                        </textarea>
+                    </div>
+                    <div>
+                        <label for="choreographer">Choreographer</label>
+                        <input
+                            type="text"
+                            id="choreographer"
+                            placeholder="Choreographer Name"
+                            name="choreographer"
+                        />
+                    </div>
+                    <div>
+                        <label for="genre">Genre</label>
+                        <input
+                            type="text"
+                            id="genre"
+                            placeholder="Genre (e.g., Hip Hop, Ballet)"
+                            name="genre"
+                        />
+                    </div>
+                    <div>
+                        <label for="tags">Tags (comma-separated)</label>
+                        <input
+                            type="text"
+                            id="tags"
+                            placeholder="e.g., energetic, freestyle"
+                            name="tags"
+                        />
+                    </div>
+                    <div>
+                        <label for="file">Upload Video File</label>
+                        <input type="file" id="file" name="file" accept="video/*" required />
+                    </div>
+                    <div>
+                        <button type="submit">Submit</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <%- include('./partials/footer.ejs') %>
+    <script src="/js/script.js"></script>
+</body>
+</html>

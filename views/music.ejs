@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <%- include('./partials/head.ejs') %>
+    </head>
+<body>
+    <%- include('./partials/nav.ejs') %>
+
+    <div id="container" class="container">
+        <%- include('./partials/sidebar.ejs') %>
+        <div class="con1">
+        <!-- Music Library Title -->
+            <h1 style=" margin-top: 20px; font-size: 2em; color: #333;">Music Library</h1>
+
+            <!-- Audio Files Section -->
+            <div class="audio_tracks" style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; margin-top: 20px; margin-bottom: 20px;">
+                <% audioFiles.forEach(function(audio) { %>
+                <a href="/music/<%= audio._id%>" class="audio_item" style="border: 1px solid #ccc; padding: 15px; border-radius: 8px; width: 300px; background-color: #f9f9f9; margin-bottom: 20px;text-decoration: none;">
+                    <!-- Audio Title -->
+                    <h3 style="margin: 0 0 10px; font-size: 20px; color: #333;"><%= audio.title %></h3>
+
+                    <!-- Audio Metadata -->
+                    <p style="margin: 0 0 10px; color: #555;">Artist: <%= audio.artist || 'Unknown' %></p>
+                    <p style="margin: 0 0 10px; color: #555;">Genre: <%= audio.genre || 'Unknown' %></p>
+                    <p style="margin: 0 0 10px; color: #555;">Tags: <%= (audio.tags || []).join(', ') || 'None' %></p>
+                    <p style="margin: 0 0 10px; color: #555;">Duration: <%= audio.duration ? (audio.duration + ' seconds') : 'N/A' %></p>
+
+                    <!-- Audio Player -->
+                    <audio controls style="width: 100%; margin-bottom: 10px;">
+                        <source src="data:audio/<%=audio.file.contentType%>;base64,<%= audio.file.data.toString('base64') %>" type="<%= audio.file.contentType %>">
+                        Your browser does not support the audio element.
+                    </audio>
+
+                    <!-- Delete Button -->
+                    <!-- <form action="/music/<%= audio._id %>?_method=DELETE" method="POST" style="display: inline;">
+                        <button type="submit" style="padding: 5px 10px; background-color: #e74c3c; color: white; border: none; cursor: pointer; border-radius: 4px;">
+                            Delete
+                        </button>
+                    </form> -->
+                </a>
+                <% }) %>
+            </div>
+        </div>
+    </div>
+
+    <%- include('./partials/footer.ejs') %>
+    <script src="/js/script.js"></script>
+</body>
+</html>
